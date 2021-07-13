@@ -1,0 +1,8 @@
+extends ../../layouts/common 
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h4.font-weight-bold Số lượng vật tư hiện tại trong kho: 
+                each db in product 
+                    span= db.sum

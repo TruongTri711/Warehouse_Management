@@ -1,0 +1,43 @@
+extends ../../layouts/common.pug
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h4.font-weight-bold Tạo mới vật tư
+            hr
+
+            form#frm(autocomplete="off" method="POST")
+                div(class="form-group")
+                    label(for="name") Tên vật tư
+                    input#name(type="text" class="form-control" name="name" style="width: 30%" placeholder="Tên vật tư..." required)
+                div(class="form-group")
+                    label(for="unit") Đơn vị tính
+                    input#unit(type="text" class="form-control" name="unit" style="width: 30%" placeholder="Đơn vị..." required)
+
+                div(class="form-group")
+                    label(for="price") Giá
+                    input#price(type="text" class="form-control" name="price" style="width: 30%" placeholder="Giá..." required)
+                    small#checkprice.form-text(style="color: red")
+
+                div(class="form-group")
+                    label(for="number") Số lượng
+                    input#number(type="text" class="form-control" name="number" style="width: 30%" placeholder="Số lượng..." required)
+                    small#checknumber.form-text(style="color: red")
+
+                button#btn.btn.btn-primary(type="submit" name="insert" onclick="check()") Lưu thông tin
+    script. 
+        var btn = document.getElementById('btn');
+        var price =  document.getElementById('price').value;
+        var number =  document.getElementById('number').value;
+        var frm = document.forms['frm'];
+        function check(){
+            if(Number.isInteger(price) == false)
+            {
+                document.getElementById('checkprice').innerHTML = "Vui lòng chỉ nhập số !";
+
+            }
+            if(Number.isInteger(number) == false){
+                document.getElementById('checknumber').innerHTML = "Vui lòng chỉ nhập số !";
+            }
+        }   
+       

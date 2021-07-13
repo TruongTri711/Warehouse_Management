@@ -1,0 +1,17 @@
+extends ../../layouts/common.pug
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h4.font-weight-bold Tạo mới đơn vị
+            hr
+            form(method="POST" autocomplete="off")
+                .form-group 
+                    label(for="codeName") Mã đơn vị:
+                    input#codeName.form-control(type="text" name="codeName" style="width: 30%" placeholder="Mã đơn vị..." )
+                        
+                .form-group 
+                    label(for="name") Đợn vị: 
+                    input#name.form-control(type="text" name="name" style="width: 30%" placeholder="Địa chỉ..." required )
+                .form-group
+                    button.btn.btn-primary(type="submit") Lưu thông tin

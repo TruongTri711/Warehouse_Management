@@ -1,0 +1,16 @@
+extends ../../layouts/common 
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h4.font-weight-bold Thông tin tài khoản
+            hr  
+            each db in acount
+                form(method="POST", autocomplete)
+                    p Tài khoản:  
+                        span= db.username
+                    p Mật khẩu: *************
+                    p Email: 
+                        span= db.email 
+                    p Số điện thoại: 
+                        span= db.phone

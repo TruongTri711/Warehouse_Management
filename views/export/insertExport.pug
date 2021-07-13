@@ -1,0 +1,62 @@
+extends ../../layouts/common.pug
+
+block content 
+    div(style="margin-left: 13%")
+        .mt-3.ml-4.mr-4
+            form(method="POST" autocomplete="off")
+                .shadow.p-3.mb-2.bg-white.rounded
+                    h4.font-weight-bold Tạo phiếu xuất kho hàng
+                    hr
+                    p Nhập thông tin phiếu xuất hàng:
+                    .form-group
+                        label(for="ID") Mã đơn hàng: 
+                        input#ID.form-control(type="text" name="ID" style="width: 30%; align-item: center" required)
+
+                    .form-group
+                        label(for="name") Người xuất kho hàng: 
+                        input#name.form-control(type="text" name="name" style="width: 30%"  required)
+
+                    .form-group
+                        label(for="reason") Lý do xuất kho: 
+                        input#reason.form-control(type="text" name="reason" style="width: 30%" required)
+
+                    .form-group
+                        label(for="note") Ghi chú: 
+                        textarea#note.form-control(name="note" row="10" col="50" style="width: 30%")
+
+                    .form-group
+                        label(for="date") Ngày xuất hàng: 
+                        input#date.ml-2(type="date" name="date" required)
+
+                // =================================================================
+                .shadow.p-3.mb-3.bg-white.rounded
+                        p Nhập thông tin vật tư:
+                        .form-inline
+                            .form-group 
+                                label(for="listproduct") Tên vật tư: 
+                                select.custom-select.ml-2(name="listproduct" required)
+                                    each vattu in product
+                                        option(value= vattu)= vattu
+
+                            .form-group 
+                                label.ml-2(for="listSupplier") Nhà cung cấp: 
+                                select.custom-select.ml-2(name="listSupplier" required)
+                                    each nhacungcap in supplier
+                                        option(value= nhacungcap)= nhacungcap
+
+                            .form-group 
+                                label.ml-2(for="listUnit") Đơn vị: 
+                                select.custom-select.ml-2(name="listUnit" required)
+                                    each donvi in unit
+                                        option(value= donvi)= donvi
+
+                            .form-group 
+                                label.ml-2(for="price") Giá:
+                                input#price.ml-2.form-control(type="text" name="price" required)
+
+                            .form-group 
+                                label.ml-2(for="number") Số lượng:
+                                input#number.ml-2.form-control(type="number" name="number" min="1" max="1000" required)
+
+                .form-group.float-right
+                    input.btn.btn-primary(type="submit" value="Lưu thông tin" )

@@ -1,0 +1,77 @@
+extends ../../layouts/common 
+
+block content
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h5.font-weight-bold Danh sách vật tư đã xuất 
+
+            .mt-4 
+                form.form-inline(method="POST" autocomplete="off")
+                    label(for="search") Tìm kiếm theo tên vật tư hoặc nhà cung cấp:
+                    input.form-control.ml-sm-2(type="search" name="search" placeholder="Search..." value=values? values : "")
+
+            table.table.table-bordered.text-center
+                tr 
+                    th Tên vật tư
+                    th Nhà cung cấp 
+                    th Đơn vị
+                    th Giá
+                    th Số lượng
+                    th Tổng tiền
+                    th Thao tác
+                if(find)
+                    each db in find
+                        tr 
+                            td= db.name 
+                            td= db.supplier 
+                            td= db.unit 
+                            td= db.price 
+                            td= db.number
+                            td= db.total
+                            td 
+                                a(href="" data-toggle="modal" data-target="#deleteitem" data-id= db._id) Xóa 
+                else 
+                    each db in view
+                        tr 
+                            td= db.name 
+                            td= db.supplier 
+                            td= db.unit 
+                            td= db.price 
+                            td= db.number
+                            td= db.total
+                            td 
+                                a(href="" data-toggle="modal" data-target="#deleteitem" data-id= db._id) Xóa 
+
+    form#formdelete(method="POST")
+
+    // delete phiều xuất hàng
+    #deleteitem.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#exampleModalLabel.modal-title Xóa vật tư !
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                        | Bạn có muốn xóa vật tư đã xuất này ? 
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Hủy
+                    button.btn.btn-danger(type='button' id="btndelete") Xóa bỏ
+
+    script. 
+        document.addEventListener('DOMContentLoaded', function(){
+            var IDname;
+            var btndelete = document.getElementById('btndelete');
+            var frmdelete = document.forms['formdelete'];
+
+            $('#deleteitem').on('show.bs.modal', function(event){
+                var button = $(event.relatedTarget);
+                IDname = button.data('id');
+            })
+
+            btndelete.onclick = function(){
+                //- alert(IDname);
+                frmdelete.action = "/export/exportHistory/" + IDname + "?_method=DELETE";
+                frmdelete.submit();
+            }
+        })

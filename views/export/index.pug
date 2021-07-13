@@ -1,0 +1,81 @@
+extends ../../layouts/common 
+
+block content
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            .row.ml-1
+                h5.font-weight-bold Danh sách đơn hàng đã xuất
+                a.btn.btn-success.ml-auto.mr-3(href="/export/insertExport") + Thêm mới 
+
+            .mt-4 
+                form.form-inline(method="POST" autocomplete="off")
+                    label(for="search") Tìm kiếm theo mã đơn hàng hoặc người xuất hàng:
+                    input.form-control.ml-sm-2(type="search" name="search" placeholder="Search..." value=values? values : "")
+
+            
+            table.table.table-bordered.text-center
+                tr 
+                    th Mã đơn hàng
+                    th Người xuất hàng 
+                    th Lý do xuất hàng
+                    th Ghi chú
+                    th Ngày xuất hàng
+                    th Thao tác
+                if(find1)
+                    each db in find1
+                        tr 
+                            td= db.ID 
+                            td= db.name  
+                            td= db.reason 
+                            td= db.note 
+                            td= db.date
+                            td 
+                                a(href="/export/viewExport/" + db.ID) Xem
+                                a.ml-3(href="/export/updateExport/" + db._id) Sửa 
+                                a.ml-3(href="" data-id= db._id data-toggle="modal" data-target= "#deleteitem" ) Xóa 
+                else 
+                     each db in find
+                        tr 
+                            td= db.ID 
+                            td= db.name  
+                            td= db.reason 
+                            td= db.note 
+                            td= db.date
+                            td 
+                                a(href="/export/viewExport/" + db.ID) Xem
+                                a.ml-3(href="/export/updateExport/" + db._id) Sửa 
+                                a.ml-3(href="" data-id= db._id data-toggle="modal" data-target= "#deleteitem" ) Xóa 
+               
+    form#formdelete(method="POST")
+
+    // delete phiều xuất hàng
+    #deleteitem.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#exampleModalLabel.modal-title Xóa phiếu xuất hàng !
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                        | Bạn có muốn xóa phiếu xuất hàng này ? 
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Hủy
+                    button.btn.btn-danger(type='button' id="btndelete") Xóa bỏ
+
+    script. 
+        document.addEventListener('DOMContentLoaded', function(){
+            var IDname;
+            var btndelete = document.getElementById('btndelete');
+            var frmdelete = document.forms['formdelete'];
+
+            $('#deleteitem').on('show.bs.modal', function(event){
+                var button = $(event.relatedTarget);
+                IDname = button.data('id');
+            })
+
+            btndelete.onclick = function(){
+                //alert(IDname);
+                frmdelete.action = "/export/" + IDname + "?_method=DELETE";
+                frmdelete.submit();
+            }
+        })

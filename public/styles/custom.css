@@ -1,0 +1,48 @@
+.do {
+    color: orange;
+}
+
+.mar {
+    width:fit-content;
+}
+
+.EVN {
+    color: blue;
+    font-weight: bold;
+}
+
+.HCMC {
+    color: red;
+    font-weight: bold;
+}
+
+.bg {
+    background: url(../images/bg.jpg);
+    background-repeat:round;
+    /* background-size: cover; */
+}
+
+.title_login {
+    /* font-weight: bold;  */
+    font-size: 80px;
+    color: black;
+    text-shadow: 2px 2px 5px red;
+}
+
+.wrongUser {
+    color: red
+}
+
+.ul_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+.li_nav {
+    display: block;
+    text-decoration: none;
+    padding: 8px 16px;
+}

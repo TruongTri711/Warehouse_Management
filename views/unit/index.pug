@@ -1,0 +1,66 @@
+extends ../../layouts/common.pug
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            .row.ml-1
+                h5.font-weight-bold Danh sách đơn vị
+                a.ml-auto.mr-3.float-right.btn.btn-success.btn-success(href="/unit/insert") + Thêm mới 
+            .mt-4 
+                form.form-inline(method="POST" autocomplete="off")
+                    label(for="search") Tìm kiếm theo mã hoặc tên đơn vị:
+                    input.form-control.ml-sm-2(type="search" name="search" placeholder="Search..." value=values? values : "")
+
+            table.table.text-center.table-bordered
+                tr
+                    th Mã đơn vị
+                    th Đơn vị
+                    th Thao tác
+                if(findUnit)        
+                    each db in findUnit
+                        tr
+                            td= db.codeName 
+                            td= db.name
+                            td 
+                                a(onclick = "postUpdate()" href=("/unit/update/" + db._id)) Sửa
+                                a.ml-3(href="" data-id= db._id data-toggle="modal" data-target="#deleteitem") Xóa
+                else 
+                    each db in unit
+                        tr
+                            td= db.codeName 
+                            td= db.name
+                            td 
+                                a(onclick = "postUpdate()" href=("/unit/update/" + db._id)) Sửa
+                                a.ml-3(href="" data-id= db._id data-toggle="modal" data-target="#deleteitem") Xóa
+
+    form#formdelete(method="POST")
+
+    // delete đơn vị
+    #deleteitem.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#exampleModalLabel.modal-title Xóa đơn vị !
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                        | Bạn có muốn xóa đơn vị này ? 
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Hủy
+                    button.btn.btn-danger(type='button' id="btndelete") Xóa bỏ
+
+    script. 
+        document.addEventListener('DOMContentLoaded', function(){
+            var btndelete = document.getElementById('btndelete');
+            var IDname;
+            var frmdelete = document.forms['formdelete'];
+            $('#deleteitem').on('show.bs.modal', function(event){
+                var button = $(event.relatedTarget);
+                IDname = button.data('id')
+            })
+
+            btndelete.onclick = function(){
+               frmdelete.action = "/unit/" + IDname + "?_method=DELETE";
+               frmdelete.submit();
+            }
+        });

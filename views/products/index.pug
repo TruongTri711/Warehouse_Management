@@ -1,0 +1,80 @@
+extends ../../layouts/common
+
+block content
+    div(style="margin-left: 13%")
+        .mt-3.ml-4.mr-4          
+            .shadow.p-3.mb-5.bg-white.rounded
+                .row.ml-1
+                    h5.font-weight-bold Danh sách vật tư
+                    a.btn.btn-success.mr-3.ml-auto(href="/products/insert") + Thêm mới
+                .mt-4
+                    form.form-inline.ml-auto(method="POST", autocomplete="off")
+                        label(for="search") Tìm kiếm theo tên:
+                        input#search.form-control.ml-sm-2(type="search", name="search",placeholder="Search...", value=values ? values : "")
+
+                table.table.text-center.table-bordered
+                    th Tên vật tư
+                    th Đơn vị tính
+                    th Giá
+                    th Số lượng
+                    th Thao tác
+
+                    if(data)        
+                        each db in data
+                            tr 
+                                td.text-center= db.name 
+                                td.text-center= db.unit 
+                                td.text-center= db.price 
+                                td.text-center= db.number
+                                td.text-center
+                                    a(href="/products/update/" + db._id) Sửa
+                                    a.ml-3(href="" data-id=db._id data-toggle="modal" data-target="#deleteitem") Xóa
+
+                    else                
+                        each db in products
+                            tr                         
+                                td.text-center= db.name 
+                                td.text-center= db.unit 
+                                td.text-center= db.price 
+                                td.text-center= db.number
+                                td.text-center
+                                    a(href="/products/update/" + db._id) Sửa
+                                    a.ml-3(href="" data-id=db._id data-toggle="modal" data-target="#deleteitem") Xóa
+        
+    form(method="POST" name="delete_form_items")
+
+
+    // delete vật tư
+    #deleteitem.modal.fade(tabindex='-1', aria-labelledby='exampleModalLabel', aria-hidden='true')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h5#exampleModalLabel.modal-title Xóa vật tư !
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                .modal-body
+                        | Bạn có muốn xóa vật tư này ? 
+                .modal-footer
+                    button.btn.btn-secondary(type='button', data-dismiss='modal') Hủy
+                    button.btn.btn-danger(type='button' id="btndelete") Xóa bỏ
+
+    script.
+        document.addEventListener('DOMContentLoaded', function(){
+            var IDname;
+            var btndelete = document.getElementById('btndelete');
+            var deleteform = document.forms['delete_form_items'];
+
+            // khi nhấn nút xóa bỏ
+            $('#deleteitem').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget)
+                IDname = button.data('id')
+            });
+
+            //- khi nhấn btndelete
+            btndelete.onclick = function(){
+                //- alert(IDname)
+                deleteform.action = '/products/' + IDname + '?_method=DELETE';
+                deleteform.submit();
+            }
+        });
+        

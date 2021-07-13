@@ -1,0 +1,46 @@
+extends ../../layouts/common 
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h4.font-weight-bold Tạo mới nhà cung cấp
+            hr
+            form(method="POST" autocomplete="off")
+                .form-group 
+                    label(for="name") Tên nhà cung cấp:
+                    input#name.form-control(type="text" name="name" style="width: 30%" placeholder="Tên nhà cung cấp..." required)
+                            
+                .form-group 
+                    label(for="address") Địa chỉ: 
+                    input#address.form-control(type="text" name="address" style="width: 30%" placeholder="Địa chỉ..." required)
+
+                .form-group 
+                    label(for="phone") Số điện thoại: 
+                    input#phone.form-control(type="text" name="phone" style="width: 30%" placeholder="Số điện thoại..." required)              
+                    small#checkphone(style="color: red")
+
+                .form-group 
+                    label(for="email") Email: 
+                    input#email.form-control(type="email" name="email" style="width: 30%" placeholder="Email..." required)                
+
+                .form-group 
+                    label(for="date") Ngày hợp tác: 
+                    input#date.ml-2(type="date" required)  
+
+                .form-group
+                    button.btn.btn-primary(type="submit" onclick="checkSubmit()") Lưu thông tin          
+
+    script. 
+        var phone = document.getElementById('phone').value;
+        var checkphone = document.getElementById('checkphone')
+        function checkSubmit()
+        {
+            if(Number.isInteger(phone) == false)
+            {
+                document.getElementById('checkphone').innerHTML = "Vui lòng chỉ nhập số";
+            }     
+            else
+            {
+                document.getElementById('checkphone').innerHTML = "";
+            }         
+        }
