@@ -39,7 +39,7 @@ html
             ul.ul_nav.bg-dark.navbar-navn(style="width: 13%")
                 li.nav-item.mt-3
                     a.nav-link.center_item(href='/index' style="color: white;") 
-                        img.mr-2(src="../../images/index.jpg" style="height = 14px;width: 14px;")
+                        img.mr-2(src="../images/index.jpg" style="height = 14px;width: 14px;")
                         |Trang chủ
                 hr(style="color: red")
                 li.nav-item
@@ -83,32 +83,54 @@ html
                     a.nav-link.center_item(href='/statistics' style="color: white;") 
                         img.mr-2(src="../../images/statistics.png" style="height: 18px; width: 18px;")                                        
                         |Thống kê vật tư   
-
+        
+        
         block content
-            div(style="margin-left: 13%")
+            .div(style="margin-left: 13%")
                 .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
-                    h4.font-weight-bold Cập nhật phiếu nhập hàng
-                    hr  
-                    each db in view
-                        form(method="post" autocomplete="off" action=("/warehouse/updateCoupon/" + db._id + "?_method=PUT")) 
-                            .form-group 
-                                label(for="ID") Mã đơn hàng: 
-                                input#ID.form-control(type="text" name="ID" required style="width: 30%" disabled value=db.ID)                
-                            .form-group 
-                                label(for="name") Người nhập hàng: 
-                                input#name.form-control(type="text" name="name" required style="width: 30%" value=db.name)   
-                            .form-group 
-                                label(for="reason") Lý do nhập hàng: 
-                                input#reason.form-control(type="text" name="reason" required style="width: 30%" value=db.reason) 
-                            .form-group 
-                                label(for="note") Ghi chú: 
-                                input#note.form-control(type="text" name="note" style="width: 30%" value=db.note) 
-                            .form-group 
-                                label(for="date") Ngày nhập hàng: 
-                                input#date.ml-2(type="date" name="date" required value=db.date)   
 
-                            .form-group 
-                                button.btn.btn-primary(type="submit") Cập nhật   
+                    h3.fonr-weight-bold.text-center BÁO CÁO NHẬP KHO
+                    hr
 
+                    p.font-weight-bold Thông tin phiếu nhập kho: 
+                    table.table.text-center.table-bordered 
+                        tr
+                            th Mã đơn hàng
+                            th Người nhập hàng
+                            th Lý do nhập hàng
+                            th Ghi chú
+                            th Ngày nhập kho
+                            th Tổng giá trị đơn hàng
 
-                    
+                        tr 
+                            each db in coupon
+                                td= db.ID
+                            each db in coupon
+                                td= db.name
+                            each db in coupon
+                                td= db.reason
+                            each db in coupon
+                                td= db.note
+                            each db in coupon
+                                td= db.date
+                            each db in total
+                                td= db.sum
+
+                    p.font-weight-bold.mt-5 Thông tin chi tiết các vật tư trong lần nhập kho: 
+                    table.table.table-sm.text-center.table-bordered
+                        tr 
+                            th Tên vật tư
+                            th Nhà cung cấp 
+                            th Đơn vị
+                            th Giá
+                            th Số lượng
+                            th Tổng tiền
+                        each db1 in history
+                            tr 
+                                td= db1.name 
+                                td= db1.supplier 
+                                td= db1.unit 
+                                td= db1.price 
+                                td= db1.number
+                                td= db1.total                       
+

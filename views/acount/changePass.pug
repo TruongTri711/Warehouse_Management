@@ -8,7 +8,7 @@ block content
             form(method="POST" autocomplete="off") 
                 .form-group 
                     label(for="passcu") Nhập mật khẩu cũ
-                    input#passcu.form-control(type="password" name="passcu" placeholder="Mật khẩu cũ..." style="width: 30%" required value=passcu? passcu : "")
+                    input#passcu.form-control(onchange="checkPass()"  type="password" name="passcu" placeholder="Mật khẩu cũ..." style="width: 30%" required value=passcu? passcu : "")
                     if errpass
                         each db in errpass
                             small.form-text(style="color: red")= db

@@ -1,0 +1,613 @@
+// tạo database tên 'QL_KHO'
+
+// tạo Collections tên products
+/* 1 */
+{
+    "_id" : ObjectId("60eca03bd4af5f59d7534495"),
+    "name" : "thép tròn đk6mm",
+    "unit" : "Kg",
+    "price" : 14000,
+    "number" : 24
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60eca050d4af5f59d753449c"),
+    "name" : "thép dẹt 60*6",
+    "unit" : "Kg",
+    "price" : 56000,
+    "number" : 25
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60eca066d4af5f59d75344a7"),
+    "name" : "Dây kẽm bọc nhựa",
+    "unit" : "Mét",
+    "price" : 1276,
+    "number" : 36
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60eca072d4af5f59d75344ac"),
+    "name" : "ống thép mạ d150",
+    "unit" : "Mét",
+    "price" : 34286,
+    "number" : 70
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60eca07dd4af5f59d75344b3"),
+    "name" : "cáp thép mạ đk 3",
+    "unit" : "Mét",
+    "price" : 14000,
+    "number" : 80
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("60eca08cd4af5f59d75344ba"),
+    "name" : "Cáp thép 50mm2 bọc HDPE",
+    "unit" : "Mét",
+    "price" : 19388,
+    "number" : 50
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("60eca099d4af5f59d75344c3"),
+    "name" : "cáp thép mạ 70mm2",
+    "unit" : "Mét",
+    "price" : 38000,
+    "number" : 36
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("60eca0b2d4af5f59d75344ce"),
+    "name" : "Đồng bản 40*6.",
+    "unit" : "Kg",
+    "price" : 69425,
+    "number" : 40
+}
+
+/* 9 */
+{
+    "_id" : ObjectId("60eca0cdd4af5f59d75344e0"),
+    "name" : "Đồng bản 30*3",
+    "unit" : "Kg",
+    "price" : 58500,
+    "number" : 40
+}
+
+/* 10 */
+{
+    "_id" : ObjectId("60eca0dbd4af5f59d75344ed"),
+    "name" : "trụ bê tông ly tâm 6m 100kg",
+    "unit" : "Cái",
+    "price" : 1063064,
+    "number" : 50
+}
+
+/* 11 */
+{
+    "_id" : ObjectId("60eca0e9d4af5f59d75344f2"),
+    "name" : "trụ bê tông (2 đoạn) 8m",
+    "unit" : "Cái",
+    "price" : 4358068,
+    "number" : 30
+}
+
+/* 12 */
+{
+    "_id" : ObjectId("60eca0f7d4af5f59d75344fd"),
+    "name" : "trụ bê tông ly tâm 12m",
+    "unit" : "Cái",
+    "price" : 5246343,
+    "number" : 30
+}
+
+/* 13 */
+{
+    "_id" : ObjectId("60eca110d4af5f59d7534508"),
+    "name" : "trụ bê tông ly tâm 14m",
+    "unit" : "Cái",
+    "price" : 6946050,
+    "number" : 50
+}
+
+/* 14 */
+{
+    "_id" : ObjectId("60eca129d4af5f59d7534513"),
+    "name" : "thép kẹp l50 - 0,3m",
+    "unit" : "Bộ",
+    "price" : 23941,
+    "number" : 50
+}
+
+/* 15 */
+{
+    "_id" : ObjectId("60eca138d4af5f59d753451a"),
+    "name" : "thép kẹp l50 - 0,5m",
+    "unit" : "Cái",
+    "price" : 36300,
+    "number" : 69
+}
+
+/* 16 */
+{
+    "_id" : ObjectId("60eca145d4af5f59d7534521"),
+    "name" : "thép kẹp l50-1,2m",
+    "unit" : "Bộ",
+    "price" : 116043,
+    "number" : 60
+}
+
+/* 17 */
+{
+    "_id" : ObjectId("60eca152d4af5f59d753452a"),
+    "name" : "potelet l50-2m",
+    "unit" : "Cái",
+    "price" : 153741,
+    "number" : 50
+}
+
+/* 18 */
+{
+    "_id" : ObjectId("60eca15fd4af5f59d753452f"),
+    "name" : "thanh chống thép l50-0,72m",
+    "unit" : "Cái",
+    "price" : 72727,
+    "number" : 66
+}
+
+/* 19 */
+{
+    "_id" : ObjectId("60eca16fd4af5f59d753453a"),
+    "name" : "bảng tên trạm",
+    "unit" : "Tấm",
+    "price" : 98000,
+    "number" : 51
+}
+
+/* 20 */
+{
+    "_id" : ObjectId("60eca185d4af5f59d7534543"),
+    "name" : "B/B độ cao",
+    "unit" : "Tấm",
+    "price" : 60000,
+    "number" : 48
+}
+
+/* 21 */
+{
+    "_id" : ObjectId("60eca192d4af5f59d753454a"),
+    "name" : "Bảng hướng dẫn (hoặc thông báo)",
+    "unit" : "Tấm",
+    "price" : 40000,
+    "number" : 56
+}
+
+/* 22 */
+{
+    "_id" : ObjectId("60eca19ed4af5f59d753454f"),
+    "name" : "bảng: dừng lại-nguy hiểm",
+    "unit" : "Tấm",
+    "price" : 84000,
+    "number" : 50
+}
+
+/* 23 */
+{
+    "_id" : ObjectId("60eca1a9d4af5f59d7534558"),
+    "name" : "Bảng tên đầu cáp.",
+    "unit" : "Tấm",
+    "price" : 66500,
+    "number" : 46
+}
+
+/* 24 */
+{
+    "_id" : ObjectId("60eca1b6d4af5f59d753455f"),
+    "name" : "Bảng chỉ danh thiết bị.",
+    "unit" : "Tấm",
+    "price" : 20900,
+    "number" : 50
+}
+
+/* 25 */
+{
+    "_id" : ObjectId("60eca1c1d4af5f59d7534566"),
+    "name" : "keo silicon",
+    "unit" : "Bình",
+    "price" : 95000,
+    "number" : 48
+}
+
+/* 26 */
+{
+    "_id" : ObjectId("60eca1ccd4af5f59d753456d"),
+    "name" : "ống gen co nhiệt 30/15-95mm2",
+    "unit" : "Mét",
+    "price" : 23050,
+    "number" : 37
+}
+
+// tạo Collections tên unit
+/* 1 */
+{
+    "_id" : ObjectId("60e2bb0a910fe3d18704c3df"),
+    "codeName" : "C123",
+    "name" : "Cái"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60e2bb1f910fe3d18704c3e6"),
+    "codeName" : "M123",
+    "name" : "Mét"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60e2bb2d910fe3d18704c3eb"),
+    "codeName" : "B123",
+    "name" : "Bình"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60e2bb3b910fe3d18704c3f2"),
+    "codeName" : "B123",
+    "name" : "Bộ"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60e2bb50910fe3d18704c404"),
+    "codeName" : "T123",
+    "name" : "Tấm"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("60e2bb62910fe3d18704c414"),
+    "codeName" : "K123",
+    "name" : "Kg"
+}
+
+// tạo Collections tên supplier
+/* 1 */
+{
+    "_id" : ObjectId("60e2b3e8910fe3d18704c1f1"),
+    "name" : "Trương Minh Trí",
+    "address" : "Cần Giờ",
+    "phone" : 335357497,
+    "email" : "tri@gmail.com",
+    "cooperationDay" : "2018-02-03"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60e2b455910fe3d18704c219"),
+    "name" : "Phạm Tú Uyên",
+    "address" : "DakLak",
+    "phone" : 335357497,
+    "email" : "uyen@gmail.com",
+    "cooperationDay" : "2017-03-03"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60e2b478910fe3d18704c226"),
+    "name" : "Trần Ngọc Long",
+    "address" : "Bến Tre",
+    "phone" : 335357497,
+    "email" : "long@gmail.com",
+    "cooperationDay" : "2018-05-05"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60e2b4aa910fe3d18704c235"),
+    "name" : "Nguyễn Văn Sách",
+    "address" : "Bến Tre",
+    "phone" : 335357497,
+    "email" : "sach@gmail.com",
+    "cooperationDay" : "2015-07-06"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60e2b4c7910fe3d18704c240"),
+    "name" : "Phạm Hoàng Tuấn",
+    "address" : "tây Ninh",
+    "phone" : 335357497,
+    "email" : "tuan@gmail.com",
+    "cooperationDay" : "2010-01-01"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("60e2b4e1910fe3d18704c24f"),
+    "name" : "Đỗ Như Ý",
+    "address" : "Bình Định",
+    "phone" : 335357497,
+    "email" : "y@gmail.com",
+    "cooperationDay" : "2013-07-07"
+}
+
+// tạo Collections tên import_coupon
+/* 1 */
+{
+    "_id" : ObjectId("60e80618ae5efa1008793a58"),
+    "ID" : "1",
+    "name" : "admin",
+    "reason" : "text",
+    "note" : "kiểm tra",
+    "date" : "2020-02-02",
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60ec9d6549b6c03088dbb5ea"),
+    "ID" : "2",
+    "name" : "Trí Trương",
+    "reason" : "Nhập hàng",
+    "note" : "",
+    "date" : "2021-05-05",
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60fe403894e6e7172070385b"),
+    "ID" : "3",
+    "name" : "Uyên Úu",
+    "reason" : "Nhập thêm vật tư vào kho",
+    "note" : "Kiểm tra hàng cẩn thận",
+    "date" : "2021-07-21",
+    "__v" : 0
+}
+
+// tạo Collections import_history
+/* 1 */
+{
+    "_id" : ObjectId("60fb631f20aba7bd1c934f6e"),
+    "ID" : "1",
+    "name" : "cáp thép mạ đk 3",
+    "supplier" : "Phạm Hoàng Tuấn",
+    "unit" : "Cái",
+    "price" : 12000,
+    "number" : 10,
+    "total" : 220000,
+    "date" : "2020-02-02"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60fb633220aba7bd1c934f7b"),
+    "ID" : "1",
+    "name" : "thép dẹt 60*6",
+    "supplier" : "Trương Minh Trí",
+    "unit" : "Cái",
+    "price" : 50000,
+    "number" : 13,
+    "total" : 650000,
+    "date" : "2020-02-02"
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("60fb634020aba7bd1c934f82"),
+    "ID" : "2",
+    "name" : "Đồng bản 30*3",
+    "supplier" : "Phạm Tú Uyên",
+    "unit" : "Kg",
+    "price" : 70000,
+    "number" : 5,
+    "total" : 350000,
+    "date" : "2021-05-05"
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("60fb635520aba7bd1c934f8b"),
+    "ID" : "2",
+    "name" : "thép dẹt 60*6",
+    "supplier" : "Nguyễn Văn Sách",
+    "unit" : "Bình",
+    "price" : 12,
+    "number" : 12,
+    "total" : 144,
+    "date" : "2021-05-05"
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("60fb636220aba7bd1c934f96"),
+    "ID" : "2",
+    "name" : "cáp thép mạ đk 3",
+    "supplier" : "Phạm Hoàng Tuấn",
+    "unit" : "Cái",
+    "price" : 14000,
+    "number" : 20,
+    "total" : 240000,
+    "date" : "2021-05-05"
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("60fe57f50c555c001a375f57"),
+    "ID" : "3",
+    "name" : "thép tròn đk6mm",
+    "supplier" : "Phạm Tú Uyên",
+    "unit" : "Kg",
+    "price" : 14000,
+    "number" : 5,
+    "total" : 70000,
+    "date" : "2021-07-21"
+}
+
+// tạo Collections tên export_coupon
+/* 1 */
+{
+    "_id" : ObjectId("60e85a29c0ffa25b568cfade"),
+    "ID" : "1",
+    "name" : "Nguyễn Văn A",
+    "reason" : "bán cho công ty A",
+    "note" : "tránh va đập khi di chuyển xa",
+    "date" : "2020-07-07"
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("60fe408894e6e71720703869"),
+    "ID" : "2",
+    "name" : "Trí Boy",
+    "reason" : "Bán cho công ty B",
+    "note" : "Di chuyển cẩn thận",
+    "date" : "2021-07-21",
+    "__v" : 0
+}
+
+// tạo Collections tên export_history
+/* 1 */
+{
+    "ID" : "1",
+    "name" : "cáp thép mạ đk 3",
+    "unit" : "Cái",
+    "price" : 20000,
+    "number" : 5,
+    "total" : 100000,
+    "profit" : 30000,
+    "date" : "2020-07-07"
+}
+
+/* 2 */
+{
+    "ID" : "1",
+    "name" : "thép dẹt 60*6",
+    "unit" : "Cái",
+    "price" : 60000,
+    "number" : 10,
+    "total" : 600000,
+    "profit" : 40000,
+    "date" : "2020-07-07"
+}
+
+/* 3 */
+{
+    "ID" : "2",
+    "name" : "thép tròn đk6mm",
+    "unit" : "Kg",
+    "price" : 20000,
+    "number" : 26,
+    "total" : 520000,
+    "profit" : 156000,
+    "date" : "2021-07-21"
+}
+
+/* 4 */
+{
+    "ID" : "3",
+    "name" : "thép tròn đk6mm",
+    "unit" : "Kg",
+    "price" : 16000,
+    "number" : 10,
+    "total" : 160000,
+    "profit" : 20000,
+    "date" : "2021-06-21"
+}
+
+// tạo Collections tên user
+/* 1 */
+{
+    "username" : "admin",
+    "password" : "456",
+    "email" : "tri@gmail.com",
+    "phone" : "01635357497"
+}
+
+// tao bang Collections tên revenue
+/* 1 */
+{
+    "_id" : ObjectId("611a204341bfa7c56dfe956b"),
+    "name" : "thép dẹt 60*6",
+    "unit" : "Kg",
+    "number_import" : 25,
+    "price_import" : 650144,
+    "number_export" : 10,
+    "price_export" : 600000,
+    "profit" : 40000
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("611a209041bfa7c56dfe9598"),
+    "name" : "Đồng bản 30*3",
+    "unit" : "Kg",
+    "number_import" : 5,
+    "price_import" : 350000,
+    "number_export" : 0,
+    "price_export" : 0,
+    "profit" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("611a283141bfa7c56dfe9a55"),
+    "name" : "cáp thép mạ đk 3",
+    "unit" : "Cái",
+    "number_import" : 30,
+    "price_import" : 460000,
+    "number_export" : 5,
+    "price_export" : 100000,
+    "profit" : 30000
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("611ab93341bfa7c56dfeb151"),
+    "name" : "thép tròn đk6mm",
+    "unit" : "Kg",
+    "number_import" : 5,
+    "price_import" : 70000,
+    "number_export" : 36,
+    "price_export" : 680000,
+    "profit" : 176000
+}
+
+// =====================================
+LƯU Ý
+-> Khi lấy dữ liệu vào Mongodb: bỏ thuốc tính "_id" bởi vì đó là máy tự tạo
+-> không thể insert 1 lúc nhiều document mà insert từng document
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

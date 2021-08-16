@@ -7,8 +7,7 @@ router.delete('/:id', controller.deleteCoupon)
 router.post('/', controller.postSearch)
 
 router.get('/insertCoupon', controller.insertCoupon)
-router.post('/insertCoupon', controller.postInsertCoupon)
-
+router.post('/insertCoupon/:id/:id1/:numberImport/:priceImport', controller.postInsertCoupon)
 
 router.get('/updateCoupon/:id', controller.updateCoupon)
 router.put('/updateCoupon/:id', controller.putUpdateCoupon)
@@ -18,5 +17,7 @@ router.delete('/importHistory/:id', controller.deleteImportHistory)
 router.post('/importHistory', controller.postSearchHistory)
 
 router.get('/viewCoupon/:id', controller.viewCoupon)
+
+router.get('/report/:id', controller.report)
 
 module.exports = router

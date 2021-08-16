@@ -11,7 +11,6 @@ block content
                 form.form-inline(method="POST" autocomplete="off")
                     label(for="search") Tìm kiếm theo mã đơn hàng hoặc người xuất hàng:
                     input.form-control.ml-sm-2(type="search" name="search" placeholder="Search..." value=values? values : "")
-
             
             table.table.table-bordered.text-center
                 tr 
@@ -30,7 +29,8 @@ block content
                             td= db.note 
                             td= db.date
                             td 
-                                a(href="/export/viewExport/" + db.ID) Xem
+                                a(href="/export/viewExport/" + db.ID) Xuất
+                                a.ml-3(href="/export/report/" + db.ID) Xem
                                 a.ml-3(href="/export/updateExport/" + db._id) Sửa 
                                 a.ml-3(href="" data-id= db._id data-toggle="modal" data-target= "#deleteitem" ) Xóa 
                 else 
@@ -42,7 +42,8 @@ block content
                             td= db.note 
                             td= db.date
                             td 
-                                a(href="/export/viewExport/" + db.ID) Xem
+                                a(href="/export/viewExport/" + db.ID) Xuất
+                                a.ml-3(href="/export/report/" + db.ID) Xem
                                 a.ml-3(href="/export/updateExport/" + db._id) Sửa 
                                 a.ml-3(href="" data-id= db._id data-toggle="modal" data-target= "#deleteitem" ) Xóa 
                

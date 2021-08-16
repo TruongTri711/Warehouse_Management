@@ -1,6 +1,8 @@
 extends ../../layouts/common.pug
 
 block content 
+    script(src="../../JS/insertProduct.js") 
+
     div(style="margin-left: 13%")
         .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
             h4.font-weight-bold Tạo mới vật tư
@@ -16,28 +18,41 @@ block content
 
                 div(class="form-group")
                     label(for="price") Giá
-                    input#price(type="text" class="form-control" name="price" style="width: 30%" placeholder="Giá..." required)
+                    input#price(onChange="checkPrice()"  type="text" class="form-control" name="price" style="width: 30%" placeholder="Giá..." required)
                     small#checkprice.form-text(style="color: red")
 
                 div(class="form-group")
                     label(for="number") Số lượng
-                    input#number(type="text" class="form-control" name="number" style="width: 30%" placeholder="Số lượng..." required)
+                    input#number(onchange="checkNumber()" type="text" class="form-control" name="number" style="width: 30%" placeholder="Số lượng..." required)
                     small#checknumber.form-text(style="color: red")
 
-                button#btn.btn.btn-primary(type="submit" name="insert" onclick="check()") Lưu thông tin
-    script. 
-        var btn = document.getElementById('btn');
-        var price =  document.getElementById('price').value;
-        var number =  document.getElementById('number').value;
-        var frm = document.forms['frm'];
-        function check(){
-            if(Number.isInteger(price) == false)
-            {
-                document.getElementById('checkprice').innerHTML = "Vui lòng chỉ nhập số !";
+                button#btn.btn.btn-primary(type="submit" name="insert" onclick="checkForm()") Lưu thông tin
 
-            }
-            if(Number.isInteger(number) == false){
-                document.getElementById('checknumber').innerHTML = "Vui lòng chỉ nhập số !";
-            }
-        }   
-       
+    //- script. 
+    //-     function checkPrice(){
+    //-         var x =  document.getElementById('price').value;
+    //-         // nếu là chữ
+    //-         if(isNaN(x))
+    //-         {
+    //-             document.getElementById('checkprice').innerHTML = "Vui lòng chỉ nhập số !";
+    //-             document.getElementById('price').style.borderColor = "red";
+    //-         }
+    //-         else
+    //-         {
+    //-             document.getElementById('checkprice').innerHTML = "";
+    //-             document.getElementById('price').style.borderColor = "";
+    //-         }
+    //-     }   
+
+    //-     function checkNumber(){
+    //-         var y =  document.getElementById('number').value;
+    //-         if(isNaN(y)){
+    //-             document.getElementById('checknumber').innerHTML = "Vui lòng chỉ nhập số !";
+    //-             document.getElementById('number').style.borderColor = "red";
+    //-         }
+    //-         else 
+    //-         {
+    //-             document.getElementById('checknumber').innerHTML = "";
+    //-             document.getElementById('number').style.borderColor = "";
+    //-         }
+    //-     }

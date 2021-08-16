@@ -7,7 +7,8 @@ var importHistorySchema = new mongoose.Schema({
     unit: String,
     price: Number,
     number: Number ,
-    total: Number
+    total: Number,
+    date: String
 })
 
 var ImportHistory = mongoose.model('ImportHistory', importHistorySchema, 'import_history');

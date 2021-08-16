@@ -1,6 +1,8 @@
 extends ../../layouts/common 
 
 block content 
+    script(src="../../JS/insertSupplier.js") 
+
     div(style="margin-left: 13%")
         .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
             h4.font-weight-bold Tạo mới nhà cung cấp
@@ -16,7 +18,7 @@ block content
 
                 .form-group 
                     label(for="phone") Số điện thoại: 
-                    input#phone.form-control(type="text" name="phone" style="width: 30%" placeholder="Số điện thoại..." required)              
+                    input#phone.form-control(onchange="checkPhone()" type="text" name="phone" style="width: 30%" placeholder="Số điện thoại..." required)              
                     small#checkphone(style="color: red")
 
                 .form-group 
@@ -25,22 +27,26 @@ block content
 
                 .form-group 
                     label(for="date") Ngày hợp tác: 
-                    input#date.ml-2(type="date" required)  
+                    input#date.ml-2(onchange="checkDate()" type="date" required) 
+                    small#checkDate.form-text(style="color: red") 
 
                 .form-group
-                    button.btn.btn-primary(type="submit" onclick="checkSubmit()") Lưu thông tin          
+                    button.btn.btn-primary(type="submit") Lưu thông tin     
 
     script. 
-        var phone = document.getElementById('phone').value;
-        var checkphone = document.getElementById('checkphone')
-        function checkSubmit()
-        {
-            if(Number.isInteger(phone) == false)
+        function checkDate(){
+            var today = new Date();
+            var day = today.getDate() + "/" + (today.getMonth()+1) + "/" + today.getFullYear();
+            var min = "01/01/1980";
+            var ngay = document.getElementById('date').value;
+
+            if(ngay > day || ngay < min){
+                document.getElementById('checkDate').innerHTML = "Vui lòng chọn ngày từ 01/01/1980 đến ngày hiện tại !";
+                document.getElementById('date').style.borderColor = "red";
+            }
+            else 
             {
-                document.getElementById('checkphone').innerHTML = "Vui lòng chỉ nhập số";
-            }     
-            else
-            {
-                document.getElementById('checkphone').innerHTML = "";
-            }         
+                document.getElementById('checkDate').innerHTML = "";
+                document.getElementById('date').style.borderColor = "";
+            }
         }

@@ -1,0 +1,34 @@
+extends ../../layouts/common 
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h5.font-weight-bold Thống kê vật tư
+
+            .mt-4 
+                form.form-inline(method="POST" autocomplete="off")
+                    label(for="search") Tìm kiếm theo tên vật tư:
+                    input.form-control.ml-sm-2(type="search" name="search" placeholder="Search..." value=values? values : "")
+
+            table.table.text-center.table-bordered
+                tr 
+                    th Tên sản phẩm 
+                    th Thao tác 
+
+                if(find)
+                    each db in find 
+                        tr 
+                            td= db.name 
+                            td 
+                                a(href="/statistics/viewReport/"+ db.name) Xuất
+                                a.ml-3(href="/statistics/report/"+ db.name) Xem
+                
+                else
+                    each db in product 
+                        tr 
+                            td= db.name 
+                            td 
+                                a(href="/statistics/viewReport/"+ db.name) Xuất
+                                a.ml-3(href="/statistics/report/"+ db.name) Xem
+
+

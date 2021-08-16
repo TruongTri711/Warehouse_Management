@@ -1,9 +1,11 @@
 extends ../../layouts/common.pug
 
 block content 
+    script(src="../../JS/insertCoupon.js") 
+
     div(style="margin-left: 13%")
         .mt-3.ml-3.mr-3
-            form(method="POST" autocomplete="off")
+            form#frm(method="POST" autocomplete="off")
                 .shadow.p-3.mb-2.bg-white.rounded
                     h4.font-weight-bold Tạo phiếu nhập kho hàng
                     hr
@@ -34,9 +36,21 @@ block content
                         .form-inline
                             .form-group 
                                 label(for="listproduct") Tên vật tư: 
-                                select.custom-select.ml-2(name="listproduct" required)
+                                select#select.custom-select.ml-2(onchange="selectText(this)" name="listproduct" required)
                                     each vattu in product
-                                        option(value= vattu)= vattu
+                                        option(value= vattu.number)= vattu.name
+
+                            // lấy ra số lượng nhập kho
+                            .form-froup 
+                                select#selectNumber(style="display: none")
+                                    each db in revenue
+                                        option(value=db.name)= db.number_import
+
+                            // lấy ra giá
+                            .form-group
+                                select#selectPrice(style="display: none") 
+                                    each db in revenue
+                                        option(value=db.name)= db.price_import 
 
                             .form-group 
                                 label.ml-2(for="listSupplier") Nhà cung cấp: 
@@ -52,23 +66,15 @@ block content
 
                             .form-group 
                                 label.ml-2(for="price") Giá:
-                                input#price.ml-2.form-control(type="text" name="price" required)
+                                input#price.ml-2.form-control(onchange="checkPrice()" type="text" name="price" required)
                                 br
                                 small#checkprice.form-text(style="color: red")
 
-                            .form-group 
-                                label.ml-2(for="number") Số lượng:
-                                input#number.ml-2.form-control(type="number" name="number" min="1" max="1000" required)
-                                br
-                                small#checknumber.form-text(style="color: red")
+                            .form-group.mt-3
+                                label(for="number") Số lượng:
+                                input#number.ml-2.form-control(  type="number" name="number" min="1" max="1000" required)
+                                small#checknumber.form-text.ml-2(style="color: red")
 
                 .form-group.float-right
-                    input.btn.btn-primary(type="submit" value="Lưu thông tin" onclick="check()")
+                    input.btn.btn-primary(type="submit" value="Lưu thông tin")
     
-
-    script. 
-        var frm = document.forms['formadd'];
-        var price = document.getElementById('demo');
-        var today = new Date();
-        //var date = today.getFullYear() + "-" + today.getDate() + "-" + (today.getMonth()+1);
-

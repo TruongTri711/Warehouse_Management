@@ -1,0 +1,44 @@
+extends ../../layouts/common 
+
+block content 
+    div(style="margin-left: 13%")
+        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
+            h5.font-weight-bold Thống kê doanh thu
+
+            .mt-4
+                form.form-inline(action="" autocomplete="off" method="POST")
+                    .form-group
+                        label(for="search") Tìm kiếm theo tên: 
+                        input#search.form-control.ml-2(type="text" name="search" placeholder="Tìm kiếm ...") 
+
+            table.table.table-bordered.text-center 
+                tr 
+                    th Tên vật tư
+                    th Đơn vị
+                    th Tổng vật tư nhập kho
+                    th Tổng chi phí nhập kho
+                    th Tổng vật tư xuất kho
+                    th Tổng chi phí xuất kho
+                    th Lợi nhuận
+
+                if revenue
+                    each db in revenue
+                        tr 
+                            td= db.name 
+                            td= db.unit
+                            td= db.number_import 
+                            td= db.price_import  
+                            td= db.number_export 
+                            td= db.price_export  
+                            td= db.profit 
+                
+                if find 
+                    each db in find
+                        tr 
+                            td= db.name 
+                            td= db.unit
+                            td= db.number_import 
+                            td= db.price_import  
+                            td= db.number_export 
+                            td= db.price_export  
+                            td= db.profit 

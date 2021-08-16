@@ -35,6 +35,7 @@ html
                                 a.dropdown-item(href='/acount/changePass') Đổi mật khẩu
                                 a.dropdown-item(href='/acount/logout') Đăng xuất                 
 
+        
         block nav
             ul.ul_nav.bg-dark.navbar-navn(style="width: 13%")
                 li.nav-item.mt-3
@@ -87,28 +88,67 @@ html
         block content
             div(style="margin-left: 13%")
                 .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
-                    h4.font-weight-bold Cập nhật phiếu nhập hàng
-                    hr  
-                    each db in view
-                        form(method="post" autocomplete="off" action=("/warehouse/updateCoupon/" + db._id + "?_method=PUT")) 
-                            .form-group 
-                                label(for="ID") Mã đơn hàng: 
-                                input#ID.form-control(type="text" name="ID" required style="width: 30%" disabled value=db.ID)                
-                            .form-group 
-                                label(for="name") Người nhập hàng: 
-                                input#name.form-control(type="text" name="name" required style="width: 30%" value=db.name)   
-                            .form-group 
-                                label(for="reason") Lý do nhập hàng: 
-                                input#reason.form-control(type="text" name="reason" required style="width: 30%" value=db.reason) 
-                            .form-group 
-                                label(for="note") Ghi chú: 
-                                input#note.form-control(type="text" name="note" style="width: 30%" value=db.note) 
-                            .form-group 
-                                label(for="date") Ngày nhập hàng: 
-                                input#date.ml-2(type="date" name="date" required value=db.date)   
+                    h3.font-weight-bold.text-center BÁO CÁO VẬT TƯ
+                    hr
 
-                            .form-group 
-                                button.btn.btn-primary(type="submit") Cập nhật   
+                    p.font-weight-bold Thông tin tổng quan: 
+                    table.table.text-center.table-bordered 
+                            tr
+                                th Tên vật tư
+                                th Tổng số lượng đã nhập
+                                th Tổng số tiền đã trả
+                                th Tổng số lượng đã xuất
+                                th Tổng chi phí thu được
+                                th Tổng chi phí lợi nhuận
+                            tr 
+                                td= nameProduct
+                                each db in sumNumberImport
+                                    td= db.sum
+                                each db in sumTotalImport
+                                    td= db.sum
+                                each db in sumNumberExport
+                                    td= db.sum
+                                each db in sumTotalExport
+                                    td= db.sum
+                                each db in profit
+                                    td= db.sum
 
+                    p.font-weight-bold.mt-5 Thông tin chi tiết các lần nhập vật tư:
+                    table.table.text-center.table-bordered 
+                            tr 
+                                th Tên vật tư
+                                th Nhà cung cấp 
+                                th Đơn vị
+                                th Giá
+                                th Số lượng
+                                th Tổng tiền
+                                th Ngày nhập
+                            each db1 in find_import
+                                tr 
+                                    td= db1.name 
+                                    td= db1.supplier 
+                                    td= db1.unit 
+                                    td= db1.price 
+                                    td= db1.number
+                                    td= db1.total  
+                                    td= db1.date                     
 
-                    
+                    p.font-weight-bold.mt-5 Thông tin chi tiết các lần xuất vật tư:
+                    table.table.table-sm.text-center.table-bordered
+                            tr 
+                                th Tên vật tư
+                                th Đơn vị
+                                th Giá
+                                th Số lượng
+                                th Tổng tiền
+                                th Lợi nhuận
+                                th Ngày xuất
+                            each db1 in find_export
+                                tr 
+                                    td= db1.name 
+                                    td= db1.unit 
+                                    td= db1.price 
+                                    td= db1.number
+                                    td= db1.total  
+                                    td= db1.profit
+                                    td= db1.date                     

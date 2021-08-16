@@ -11,8 +11,8 @@ html
     body.bg        
         div(style="margin-top: 7%")
             h1.text-center.title_login Quản lý kho hàng
-            .container.mt-5(style="width: 25%")
-                .shadow.p-3.mb-5.bg-white.rounded
+            .container.mt-5(style="width: 20%;")
+                .shadow.p-3.mb-5.bg-white.rounded-lg
                         h1.text-center Đăng Nhập
 
                         form(method="POST", autocomplete="off") 
@@ -25,9 +25,22 @@ html
                             .form-group
                                 label(for="password") Mật khẩu
                                 input#password.form-control(type="password", name ="password", placeholder="Password...", required, value=values ? values.password : '') 
-                                if errorpass
-                                    each errpass in errorpass
-                                        small.form-text.wrongUser= errpass
+                            .form-check
+                                input#checkinput.form-check-input(type="checkbox" onchange="KTcheck()") 
+                                label.form-check-label(for="checkinput") Hiện/ẩn mật khẩu
+                            if errorpass
+                                each errpass in errorpass
+                                    small.form-text.wrongUser= errpass
+                            button.mt-2.btn.btn-outline-secondary Đăng nhập
 
-
-                            button.btn.btn-outline-secondary Đăng nhập
+    script. 
+        function KTcheck(){
+            var checkinput = document.getElementById('checkinput');
+            if(checkinput.checked == true){
+                document.getElementById('password').type = 'text';
+            }
+            else 
+            {
+                document.getElementById('password').type = 'password';
+            }
+        }

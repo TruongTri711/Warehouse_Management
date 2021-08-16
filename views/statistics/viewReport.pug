@@ -1,0 +1,133 @@
+html 
+    head 
+        link(rel="stylesheet", href=href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css", integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l", crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js", integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns", crossorigin="anonymous")
+        script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js", integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js", integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF", crossorigin="anonymous")
+
+    body
+        button.btn.btn-secondary.mt-2.ml-2#btnprint(type="button" onclick="printPage()") Print
+
+        p.ml-3.mt-3(style="font-weight: bold; font-size: 13px") Trung tâm CSKH - Tổng công ty điện lực Thành Phố Hồ Chí Minh
+            
+        h1.mt-5.text-center PHIẾU THỐNG KÊ VẬT TƯ
+             
+        hr(style="margin-left: 10%; margin-right: 10%")
+
+        //- p.font-weight-bold(style="margin-left: 10%") Tên vật tư: 
+        //-     span.font-weight-normal= nameProduct
+
+        //- p.font-weight-bold(style="margin-left: 10%") Tổng số lượng đã nhập: 
+        //-     each db in sumNumberImport
+        //-         span.font-weight-normal= db.sum
+
+        //- p.font-weight-bold(style="margin-left: 10%") Tổng số tiền đã trả: 
+        //-     each db in sumTotalImport
+        //-         span.font-weight-normal= db.sum
+
+        //- p.font-weight-bold(style="margin-left: 10%") Tổng số lượng đã xuất: 
+        //-     each db in sumNumberExport
+        //-         span.font-weight-normal= db.sum
+
+        //- p.font-weight-bold(style="margin-left: 10%") Tổng chi phí thu được: 
+        //-     each db in sumTotalExport
+        //-         span.font-weight-normal= db.sum
+
+        //- p.font-weight-bold(style="margin-left: 10%") Tổng chi phí lợi nhuận: 
+        //-     each db in profit
+        //-         span.font-weight-normal= db.sum
+
+
+        .div(style="margin-left: 10%; margin-right: 10%")
+            p.font-weight-bold Thông tin tổng quan:
+            table.table.table-bordered.text-center 
+                tr 
+                    th Tên vật tư
+                    th Tổng số lượng đã nhập
+                    th Tổng số tiền đã trả
+                    th Tổng số lượng đã xuất
+                    th Tổng chi phí thu được
+                    th Tổng chi phí lợi nhuận
+
+                tr 
+                    td= nameProduct
+                    each db in sumNumberImport
+                        td= db.sum
+                    each db in sumTotalImport
+                        td= db.sum
+                    each db in sumNumberExport
+                        td= db.sum
+                    each db in sumTotalExport
+                        td= db.sum
+                    each db in profit
+                        td= db.sum
+
+
+        .div(style="margin-left: 10%; margin-right: 10%")
+            p.font-weight-bold.mt-5 Thông tin chi tiết các lần nhập vật tư:
+            table.table.table-sm.text-center.table-bordered
+                tr 
+                    th Tên vật tư
+                    th Nhà cung cấp 
+                    th Đơn vị
+                    th Giá
+                    th Số lượng
+                    th Tổng tiền
+                    th Ngày nhập
+                each db1 in find_import
+                    tr 
+                        td= db1.name 
+                        td= db1.supplier 
+                        td= db1.unit 
+                        td= db1.price 
+                        td= db1.number
+                        td= db1.total  
+                        td= db1.date                     
+
+        .div(style="margin-left: 10%; margin-right: 10%")
+            p.font-weight-bold.mt-5 Thông tin chi tiết các lần xuất vật tư:
+            table.table.table-sm.text-center.table-bordered
+                tr 
+                    th Tên vật tư
+                    th Đơn vị
+                    th Giá
+                    th Số lượng
+                    th Tổng tiền
+                    th Lợi nhuận
+                    th Ngày xuất
+                each db1 in find_export
+                    tr 
+                        td= db1.name 
+                        td= db1.unit 
+                        td= db1.price 
+                        td= db1.number
+                        td= db1.total  
+                        td= db1.profit
+                        td= db1.date                     
+
+            .float-right
+                .div(style="margin-top: 30%")
+                    p TPHCM, 
+                        span#layngay
+                .text-center 
+                    p Người xuất hóa Đơn
+                    p(style="font-size: 12px") (Ký và ghi rõ họ tên)
+
+
+        script. 
+            var today = new Date();
+            var date = "Ngày " + today.getDate() + ", Tháng " + (today.getMonth()+1) + ", Năm " + today.getFullYear();
+            document.getElementById('layngay').innerHTML = date.toString();
+
+            var btnprint = document.getElementById('btnprint');
+            function printPage(){
+                if(btnprint.style.display === "")
+                {
+                    btnprint.style.display = "none";
+                    window.print();
+                }
+            }
+
+            

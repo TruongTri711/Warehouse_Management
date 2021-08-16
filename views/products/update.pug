@@ -38,30 +38,56 @@ html
         block nav
             ul.ul_nav.bg-dark.navbar-navn(style="width: 13%")
                 li.nav-item.mt-3
-                    a.nav-link(href='/index' style="color: white;") Trang chủ
+                    a.nav-link.center_item(href='/index' style="color: white;") 
+                        img.mr-2(src="../../images/index.jpg" style="height = 14px;width: 14px;")
+                        |Trang chủ
                 hr(style="color: red")
                 li.nav-item
-                    a.nav-link(href='/products' style="color: white;") Danh mục sản phẩm
+                    a.nav-link.center_item(href='/products' style="color: white;")
+                        img.mr-2(src="../../images/product.png" style="height = 15px;width: 15px;")
+                        |Danh mục sản phẩm
                 li.nav-item
-                    a.nav-link(href='/unit' style="color: white;") Đơn vị
+                    a.nav-link.center_item(href='/unit' style="color: white;") 
+                        img.mr-2(src="../../images/unit.png" style="height: 17px; width: 17px;")
+                        |Đơn vị
                 hr(style="color: red")
                 li.nav-item
-                    a.nav-link(href='/supplier' style="color: white;") Nhà cung cấp
+                    a.nav-link.center_item(href='/supplier' style="color: white;") 
+                        img.mr-2(src="../../images/supplier.png" style="height: 17px; width: 17px;")                    
+                        |Nhà cung cấp
                 hr(style="color: red")
                 li.nav-item
-                    a.nav-link(href='/warehouse' style="color: white;") Nhập kho
+                    a.nav-link.center_item(href='/warehouse' style="color: white;") 
+                        img.mr-2(src="../../images/import.png" style="height: 18px; width: 18px;")                                        
+                        |Nhập kho
                 li.nav-item
-                    a.nav-link(href='/warehouse/importHistory' style="color: white;") Lịch sử nhập kho
+                    a.nav-link.center_item(href='/warehouse/importHistory' style="color: white;") 
+                        img.mr-2(src="../../images/history.png" style="height: 17px; width: 17px;")                                        
+                        |Lịch sử nhập kho
                 hr(style="color: red")
                 li.nav-item
-                    a.nav-link(href='/export' style="color: white;") Xuất kho
+                    a.nav-link.center_item(href='/export' style="color: white;") 
+                        img.mr-2(src="../../images/export.png" style="height: 16px; width: 16px;")                                                            
+                        |Xuất kho
                 li.nav-item
-                    a.nav-link(href='/export/exportHistory' style="color: white;") Lịch sử Xuất kho        
+                    a.nav-link.center_item(href='/export/exportHistory' style="color: white;") 
+                        img.mr-2(src="../../images/history.png" style="height: 17px; width: 17px;")                                                            
+                        |Lịch sử Xuất kho        
+                hr(style="color: red")
+                li.nav-item
+                    a.nav-link.center_item(href='/statistics/revenue' style="color: white;") 
+                        img.mr-2(src="../../images/statistics1.png" style="height: 18px; width: 18px;")                                        
+                        |Thống kê doanh thu  
+
+                li.nav-item
+                    a.nav-link.center_item(href='/statistics' style="color: white;") 
+                        img.mr-2(src="../../images/statistics.png" style="height: 18px; width: 18px;")                                        
+                        |Thống kê vật tư   
 
         block content
             div(style="margin-left: 13%")
                 .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
-                    h4.font-weight-bold Cập nhật sản phẩm
+                    h4.font-weight-bold Cập nhật vật tư
                     hr      
                     each db in update
                         form(autocomplete="off" method="POST" action=("/products/update/" + db._id + "?_method=PUT"))
@@ -82,29 +108,3 @@ html
                                 input#number(type="text" class="form-control" style="width: 30%" name="number" value=db.number required)
 
                             input.btn.btn-primary(type="submit" value= "Cập nhật" name="update")
-
-
-//- block content    
-//-     div(style="margin-left: 13%")
-//-         .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
-//-             h4.font-weight-bold Cập nhật sản phẩm
-//-             hr      
-//-             each db in update
-//-                 form(autocomplete="off" method="POST" action=("/products/update/" + db._id + "?_method=PUT"))
-//-                     .form-group
-//-                         label(for="name") Tên vật tư
-//-                         input#name(type="text" class="form-control"  style="width: 30%" name="name" value=db.name required)                    
-                                    
-//-                     .form-group
-//-                         label(for="unit") Đơn vị tính
-//-                         input#unit(type="text" class="form-control" style="width: 30%" name="unit" value=db.unit required)
-
-//-                     .form-group
-//-                         label(for="price") Giá(VNĐ)
-//-                         input#price(type="text" class="form-control" style="width: 30%" name="price" value=db.price required)
-
-//-                     .form-group
-//-                         label(for="number") Số lượng
-//-                         input#number(type="text" class="form-control" style="width: 30%" name="number" value=db.number required)
-
-//-                     input.btn.btn-primary(type="submit" value= "Lưu lại" name="update")

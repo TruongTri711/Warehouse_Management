@@ -34,6 +34,7 @@ var warehouseRoute = require('./routes/warehouse.route')
 var exportRoute = require('./routes/export.router')
 var indexRoute = require('./routes/index.router')
 var acountRoute = require('./routes/acount.router')
+var statisticsRoute = require('./routes/statistics.router')
 
 var db = require('./db')
 
@@ -47,7 +48,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// sử dụng PUT
+// sử dụng PUT, DELETE
 app.use(methodOverride('_method'));
 
 // app.use(sessionMiddleware): nó sẽ ảnh hưởng đến all các đường dẫn mà chúng ta sử dụng
@@ -102,6 +103,7 @@ app.use('/warehouse', requireMiddleware.requireAuth, warehouseRoute)
 app.use('/export', requireMiddleware.requireAuth, exportRoute)
 app.use('/index', requireMiddleware.requireAuth, indexRoute)
 app.use('/acount',requireMiddleware.requireAuth, acountRoute)
+app.use('/statistics', requireMiddleware.requireAuth, statisticsRoute)
 
 app.listen(port, function(){
     console.log('Server listening on port ' + port);

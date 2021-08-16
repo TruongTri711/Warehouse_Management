@@ -30,8 +30,9 @@ block content
                             td= db.reason 
                             td= db.note 
                             td= db.date
-                            td 
-                                a(href="/warehouse/viewCoupon/" + db.ID) Xem
+                            td
+                                a(href="/warehouse/viewCoupon/" + db.ID) Xuất
+                                a.ml-3(href="/warehouse/report/" + db.ID) Xem
                                 a.ml-3(href="/warehouse/updateCoupon/" + db._id) Sửa 
                                 a.ml-3(href="" data-id= db._id data-toggle="modal" data-target= "#deleteitem" ) Xóa 
                 else 
@@ -43,7 +44,8 @@ block content
                             td= db.note 
                             td= db.date
                             td 
-                                a(href="/warehouse/viewCoupon/" + db.ID) Xem
+                                a(href="/warehouse/viewCoupon/" + db.ID) Xuất
+                                a.ml-3(href="/warehouse/report/" + db.ID) Xem
                                 a.ml-3(href="/warehouse/updateCoupon/" + db._id) Sửa 
                                 a.ml-3(href="" data-id= db._id data-toggle="modal" data-target= "#deleteitem" ) Xóa 
 

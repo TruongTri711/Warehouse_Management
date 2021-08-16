@@ -1,9 +1,11 @@
 extends ../../layouts/common.pug
 
 block content 
+    script(src="../../JS/insertExport.js")
+
     div(style="margin-left: 13%")
         .mt-3.ml-4.mr-4
-            form(method="POST" autocomplete="off")
+            form#frm(method="POST" autocomplete="off")
                 .shadow.p-3.mb-2.bg-white.rounded
                     h4.font-weight-bold Tạo phiếu xuất kho hàng
                     hr
@@ -34,29 +36,54 @@ block content
                         .form-inline
                             .form-group 
                                 label(for="listproduct") Tên vật tư: 
-                                select.custom-select.ml-2(name="listproduct" required)
+                                select.custom-select.ml-2(name="listproduct" required onchange="selectText(this)")
                                     each vattu in product
-                                        option(value= vattu)= vattu
+                                        option(value= vattu.number)= vattu.name
 
+
+                            // Hiển thị tổng số lượng vật tư xuất đi
                             .form-group 
-                                label.ml-2(for="listSupplier") Nhà cung cấp: 
-                                select.custom-select.ml-2(name="listSupplier" required)
-                                    each nhacungcap in supplier
-                                        option(value= nhacungcap)= nhacungcap
+                                select#numberExport(style="display: none;")
+                                    each db in revenue
+                                        option(value=db.name)= db.number_export
+
+
+                            // Hiển thị tổng số chi phí vật tư xuất đi
+                            .form-group 
+                                select#priceExport(style="display: none;")
+                                    each db in revenue
+                                        option(value=db.name)= db.price_export
+                                
+                            // Hiển thị tổng số chi phí vật tư xuất đi
+                            .form-group 
+                                select#allProfit(style="display: none;")
+                                    each db in revenue
+                                        option(value=db.name)= db.profit
+
+
+
+                            // lấy ra giá hiện tại của vật tư đó
+                            .form-group 
+                                label.ml-2(for="listproduct" ) Giá nhập kho: 
+                                select#getPrice_current.custom-select.ml-2
+                                    each vattu in product
+                                        option(value= vattu.name disabled="disabled")= vattu.price
 
                             .form-group 
                                 label.ml-2(for="listUnit") Đơn vị: 
-                                select.custom-select.ml-2(name="listUnit" required)
-                                    each donvi in unit
-                                        option(value= donvi)= donvi
+                                select#getUnit.custom-select.ml-2(name="listUnit" required)
+                                    each db in unit
+                                        option(value= db)= db
 
-                            .form-group 
-                                label.ml-2(for="price") Giá:
-                                input#price.ml-2.form-control(type="text" name="price" required)
+                            .form-group
+                                label.ml-2(for="price") Giá xuất đi:
+                                input#price.ml-2.form-control(onchange="checkPrice()" type="text" name="price" required)
+                                small#checkprice.form-text(style="color: red")
 
-                            .form-group 
+                            .form-group.mt-3 
                                 label.ml-2(for="number") Số lượng:
                                 input#number.ml-2.form-control(type="number" name="number" min="1" max="1000" required)
 
                 .form-group.float-right
-                    input.btn.btn-primary(type="submit" value="Lưu thông tin" )
+                    button#btn.btn.btn-primary(type="button" onclick="checkSubmit()") Lưu thông tin
+

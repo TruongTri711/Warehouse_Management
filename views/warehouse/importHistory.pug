@@ -14,7 +14,6 @@ block content
             table.table.text-center.table-bordered
                 tr 
                     th Tên vật tư
-                    th Nhà cung cấp 
                     th Đơn vị
                     th Giá
                     th Số lượng
@@ -24,8 +23,8 @@ block content
                 if(find)
                     each db in find
                         tr 
+                            td(style="display: none")= db.ID
                             td= db.name 
-                            td= db.supplier 
                             td= db.unit 
                             td= db.price 
                             td= db.number
@@ -35,14 +34,14 @@ block content
                 else 
                     each db in view
                         tr 
+                            td(style="display: none")= db.ID
                             td= db.name 
-                            td= db.supplier 
                             td= db.unit 
                             td= db.price 
                             td= db.number
                             td= db.total
-                            td 
-                                a(href="" data-toggle="modal" data-target="#deleteitem" data-id= db._id) Xóa 
+                            td
+                                a.ml-3(href="" data-toggle="modal" data-target="#deleteitem" data-id= db._id) Xóa 
 
 
     form#formdelete(method="POST")

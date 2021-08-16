@@ -2,7 +2,21 @@ extends ../../layouts/common
 
 block content 
     div(style="margin-left: 13%")
-        .shadow.p-3.mb-5.bg-white.rounded.mt-3.ml-4.mr-4
-            h4.font-weight-bold Số lượng vật tư hiện tại trong kho: 
+        .row.mt-3.justify-content-center
+            .alert.alert-primary.text-center(style="width: 30%")
+                h4.font-weight-bold Số lượng vật tư hiện tại
+                hr
                 each db in product 
-                    span= db.sum
+                    h1.font-weight-bold= db.sum
+
+            .alert.alert-success.text-center.ml-4(style="width: 30%")
+                h4.font-weight-bold Số lượng vật tư đã nhập
+                    hr
+                    each db in import_history 
+                        h1.font-weight-bold= db.sum
+
+            .alert.alert-warning.text-center.ml-4(style="width: 30%")
+                h4.font-weight-bold Số lượng vật tư đã xuất
+                    hr
+                    each db in export_history 
+                        h1.font-weight-bold= db.sum

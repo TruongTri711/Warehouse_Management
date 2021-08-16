@@ -16,31 +16,53 @@ html
              
         hr(style="margin-left: 10%; margin-right: 10%")
 
-        p.font-weight-bold(style="margin-left: 10%") Mã đơn hàng: 
-            each db in coupon
-                span.font-weight-normal= db.ID
+        //- p.font-weight-bold(style="margin-left: 10%") Mã đơn hàng: 
+        //-     each db in coupon
+        //-         span.font-weight-normal= db.ID
 
-        p.font-weight-bold(style="margin-left: 10%") Người xuất hàng: 
-            each db in coupon
-                span.font-weight-normal= db.name
+        //- p.font-weight-bold(style="margin-left: 10%") Người xuất hàng: 
+        //-     each db in coupon
+        //-         span.font-weight-normal= db.name
 
-        p.font-weight-bold(style="margin-left: 10%") Lý do xuất hàng: 
-            each db in coupon
-                span.font-weight-normal= db.reason
+        //- p.font-weight-bold(style="margin-left: 10%") Lý do xuất hàng: 
+        //-     each db in coupon
+        //-         span.font-weight-normal= db.reason
 
-        p.font-weight-bold(style="margin-left: 10%") Ghi chú: 
-            each db in coupon
-                span.font-weight-normal= db.note
+        //- p.font-weight-bold(style="margin-left: 10%") Ghi chú: 
+        //-     each db in coupon
+        //-         span.font-weight-normal= db.note
 
-        p.font-weight-bold(style="margin-left: 10%") Ngày xuất kho: 
-            each db in coupon
-                span.font-weight-normal= db.date
+        //- p.font-weight-bold(style="margin-left: 10%") Ngày xuất kho: 
+        //-     each db in coupon
+        //-         span.font-weight-normal= db.date
 
         .div(style="margin-left: 10%; margin-right: 10%")
-            table.table.table-sm.text-center
+            p.font-weight-bold Thông tin phiếu xuất kho: 
+            table.table.table-bordered.text-center 
+                tr 
+                    th Mã đơn hàng
+                    th Người xuất hàng
+                    th Lý do xuất hàng:
+                    th Ghi chú
+                    th Ngày xuất kho
+                tr 
+                    each db in coupon
+                        td= db.ID
+                    each db in coupon
+                        td= db.name
+                    each db in coupon
+                        td= db.reason
+                    each db in coupon
+                        td= db.note
+                    each db in coupon
+                        td= db.date
+
+
+        .div(style="margin-left: 10%; margin-right: 10%")
+            p.font-weight-bold.mt-5 Thông tin chi tiết các vật tư trong lần xuất kho: 
+            table.table.table-sm.text-center.table-bordered
                 tr 
                     th Tên vật tư
-                    th Nhà cung cấp 
                     th Đơn vị
                     th Giá
                     th Số lượng
@@ -48,7 +70,6 @@ html
                 each db1 in history
                     tr 
                         td= db1.name 
-                        td= db1.supplier 
                         td= db1.unit 
                         td= db1.price 
                         td= db1.number

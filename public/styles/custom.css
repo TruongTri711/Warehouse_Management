@@ -46,3 +46,9 @@
     text-decoration: none;
     padding: 8px 16px;
 }
+
+.center_item {
+    color: white;
+    display: flex; 
+    align-items: center;
+}
